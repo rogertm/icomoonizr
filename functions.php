@@ -15,31 +15,31 @@
  *
  * @since Twenty'em Child 1.0
  */
-function t_em_child_setup(){
+function icomoonizr_setup(){
 	// Make Twenty'em Child available for translation.
-	load_child_theme_textdomain( 't_em_child', get_stylesheet_directory() . '/languages' );
+	load_child_theme_textdomain( 'icomoonizr', get_stylesheet_directory() . '/languages' );
 }
-add_action( 'after_setup_theme', 't_em_child_setup' );
+add_action( 'after_setup_theme', 'icomoonizr_setup' );
 
 /**
  * Enqueue and register all css and js
  *
  * @since Twenty'em Child 1.0
  */
-function t_em_child_enqueue(){
-	wp_register_style( 't_em_child-', t_em_get_css( 'theme', T_EM_CHILD_THEME_DIR_PATH .'/css', T_EM_CHILD_THEME_DIR_URL .'/css' ), '', t_em_theme( 'Version' ), 'all' );
-	wp_enqueue_style( 't_em_child-' );
+function icomoonizr_enqueue(){
+	wp_register_style( 'icomoonizr-', t_em_get_css( 'theme', T_EM_CHILD_THEME_DIR_PATH .'/css', T_EM_CHILD_THEME_DIR_URL .'/css' ), '', t_em_theme( 'Version' ), 'all' );
+	wp_enqueue_style( 'icomoonizr-' );
 }
-add_action( 'wp_enqueue_scripts', 't_em_child_enqueue' );
+add_action( 'wp_enqueue_scripts', 'icomoonizr_enqueue' );
 
 /**
  * Dequeue styles form parent theme
  *
  * @since Twenty'em Child 1.2
  */
-function t_em_child_dequeue(){
+function icomoonizr_dequeue(){
 	wp_dequeue_style( 'twenty-em-style' );
 	wp_deregister_style( 'twenty-em-style' );
 }
-add_action( 'wp_enqueue_scripts', 't_em_child_dequeue', 999 );
+add_action( 'wp_enqueue_scripts', 'icomoonizr_dequeue', 999 );
 ?>
