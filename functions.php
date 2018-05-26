@@ -1,22 +1,22 @@
 <?php
 /**
- * Twenty'em Child
+ * Icomoonizr
  *
  * @package			WordPress
- * @subpackage		Twenty'em Child
+ * @subpackage		Icomoonizr
  * @author			RogerTM
  * @license			license.txt
  * @link			https://themingisprose.com/twenty-em
- * @since 			Twenty'em Child 1.0
+ * @since 			Icomoonizr 1.0
  */
 
 /**
- * Twenty'em Child Setup
+ * Icomoonizr Setup
  *
- * @since Twenty'em Child 1.0
+ * @since Icomoonizr 1.0
  */
 function icomoonizr_setup(){
-	// Make Twenty'em Child available for translation.
+	// Make Icomoonizr available for translation.
 	load_child_theme_textdomain( 'icomoonizr', get_stylesheet_directory() . '/languages' );
 }
 add_action( 'after_setup_theme', 'icomoonizr_setup' );
@@ -24,7 +24,7 @@ add_action( 'after_setup_theme', 'icomoonizr_setup' );
 /**
  * Enqueue and register all css and js
  *
- * @since Twenty'em Child 1.0
+ * @since Icomoonizr 1.0
  */
 function icomoonizr_enqueue(){
 	wp_register_style( 'icomoonizr-', t_em_get_css( 'theme', T_EM_CHILD_THEME_DIR_PATH .'/css', T_EM_CHILD_THEME_DIR_URL .'/css' ), '', t_em_theme( 'Version' ), 'all' );
@@ -35,7 +35,7 @@ add_action( 'wp_enqueue_scripts', 'icomoonizr_enqueue' );
 /**
  * Dequeue styles form parent theme
  *
- * @since Twenty'em Child 1.2
+ * @since Icomoonizr 1.0
  */
 function icomoonizr_dequeue(){
 	wp_dequeue_style( 'twenty-em-style' );
