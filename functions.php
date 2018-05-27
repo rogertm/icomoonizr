@@ -85,4 +85,57 @@ function icomoonizr_footer_options( $footer_options = '' ){
 	return $footer_options;
 }
 add_filter( 't_em_admin_filter_footer_options', 'icomoonizr_footer_options' );
+
+/**
+ * Add custom general options to Admin Panel
+ *
+ * @since Icomoonizr 1.0
+ */
+function icomoonizr_custom_general_options(){
+	// Get JSON file to read the Icon Pack from GitHub
+?>
+	<div class="sub-layout text-option general">
+		<label class="description single-option">
+			<p><?php _e( 'JSON file for Icon Pack', 'icomoonizr' ); ?></p>
+			<p class="description"><?php _e( 'URL address of JSON file to read the Icon Pack', 'icomoonizr' ); ?></p>
+			<input type="text" class="regular-text" name="t_em_theme_options[icon_pack_json]" value="<?php echo t_em( 'icon_pack_json' ) ?>" />
+		</label>
+	</div>
+<?php
+}
+add_action( 't_em_admin_action_general_options_after', 'icomoonizr_custom_general_options', 15 );
+
+/**
+ * Merge into default theme options
+ * This function is attached to the "t_em_admin_filter_default_theme_options" filter hook
+ * @return array 	Array of options
+ *
+ * @since Icomoonizr 1.0
+ */
+function icomoonizr_default_theme_options( $default_theme_options ){
+	$options = array(
+		'icon_pack_json'	=> '',
+	);
+	$default_options = array_merge( $default_theme_options, $options );
+	return $default_options;
+}
+add_filter( 't_em_admin_filter_default_theme_options', 'icomoonizr_default_theme_options' );
+
+/**
+ * Sanitize and validate the input.
+ * This function is attached to the "t_em_admin_filter_theme_options_validate" filter hook
+ * @param $input array  Array of options to validate
+ * @return array
+ *
+ * @since Icomoonizr 1.0
+ */
+function icomoonizr_options_validate( $input ){
+	if ( ! $input )
+		return;
+
+	$input['icon_pack_json'] = ( isset( $input['icon_pack_json'] ) ) ? esc_url_raw( $input['icon_pack_json'] ) : '';
+
+	return $input;
+}
+add_filter( 't_em_admin_filter_theme_options_validate', 'icomoonizr_options_validate' );
 ?>
