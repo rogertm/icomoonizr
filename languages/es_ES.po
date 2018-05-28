@@ -1,0 +1,56 @@
+# Copyright (C) 2018 RogerTM
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Icomoonizr 1.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/theme/icomoonizr\n"
+"POT-Creation-Date: 2018-05-27 22:49-0400\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-05-27 22:53-0400\n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.8.7.1\n"
+"Last-Translator: RogerTM <hi@themingisprose.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: es_ES\n"
+
+#: functions.php:104
+msgid "JSON file for Icon Pack"
+msgstr "Archivo JSON para Icon Pack"
+
+#: functions.php:105
+msgid "URL address of JSON file to read the Icon Pack"
+msgstr "Dirección URL del archivo JSON que contiene la selección de íconos"
+
+#: functions.php:167
+msgid "Browse in <strong>%s</strong> icons in the list below"
+msgstr "Buscar entre los <strong>%s</strong> íconos en la lista siguiente"
+
+#: functions.php:168
+msgid "Search Icons"
+msgstr "Buscar Íconos"
+
+#: functions.php:169
+msgid "Search Icons..."
+msgstr "Buscar Íconos..."
+
+#. Theme Name of the plugin/theme
+msgid "Icomoonizr"
+msgstr "Icomoonizr"
+
+#. Theme URI of the plugin/theme
+msgid "https://github.com/themingisprose/icomoonizr"
+msgstr "https://github.com/themingisprose/icomoonizr"
+
+#. Description of the plugin/theme
+msgid "Icomoonizr Theme"
+msgstr "Icomoonizr Theme"
+
+#. Author of the plugin/theme
+msgid "RogerTM"
+msgstr "RogerTM"
+
+#. Author URI of the plugin/theme
+msgid "https://themingisprose.com"
+msgstr "https://themingisprose.com"

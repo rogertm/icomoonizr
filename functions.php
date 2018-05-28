@@ -6,7 +6,7 @@
  * @subpackage		Icomoonizr
  * @author			RogerTM
  * @license			license.txt
- * @link			https://themingisprose.com/twenty-em
+ * @link			https://themingisprose.com/icon-pack
  * @since 			Icomoonizr 1.0
  */
 
@@ -18,6 +18,8 @@
 function icomoonizr_setup(){
 	// Make Icomoonizr available for translation.
 	load_child_theme_textdomain( 'icomoonizr', get_stylesheet_directory() . '/languages' );
+
+	// remove_action( 't_em_action_site_info_bottom', 't_em_credit' );
 }
 add_action( 'after_setup_theme', 'icomoonizr_setup' );
 
@@ -29,6 +31,9 @@ add_action( 'after_setup_theme', 'icomoonizr_setup' );
 function icomoonizr_enqueue(){
 	wp_register_style( 'icomoonizr-', t_em_get_css( 'theme', T_EM_CHILD_THEME_DIR_PATH .'/css', T_EM_CHILD_THEME_DIR_URL .'/css' ), '', t_em_theme( 'Version' ), 'all' );
 	wp_enqueue_style( 'icomoonizr-' );
+
+	wp_register_script( 'child-app-utils', t_em_get_js( 'app.utils', T_EM_CHILD_THEME_DIR_PATH .'/js', T_EM_CHILD_THEME_DIR_URL .'/js' ), array( 'jquery' ), t_em_theme( 'Version' ), true );
+	wp_enqueue_script( 'child-app-utils' );
 }
 add_action( 'wp_enqueue_scripts', 'icomoonizr_enqueue' );
 
@@ -138,4 +143,56 @@ function icomoonizr_options_validate( $input ){
 	return $input;
 }
 add_filter( 't_em_admin_filter_theme_options_validate', 'icomoonizr_options_validate' );
+
+/**
+ * Icon Demo
+ *
+ * @since Icomoonizr 1.1
+ */
+function icomoonizr_icomoon_demo(){
+	if ( ! is_front_page() )
+		return;
+
+	/**
+	 * Get the icons from GitHub
+	 */
+	$get_json		= t_em( 'icon_pack_json' );
+	$read_json		= file_get_contents( $get_json );
+	$decode_json	= json_decode( $read_json, true );
+	$icons 			= $decode_json['icons'];
+	$count			= count( $icons );
+?>
+	<section id="icon-pack">
+		<div class="icon-filter form-group <?php echo t_em_grid( '7' ) ?>">
+			<p class="lead"><?php printf( __( 'Browse in <strong>%s</strong> icons in the list below', 'icomoonizr' ), $count ) ?></p>
+			<label for="icon-filter" class="sr-only"><?php _e( 'Search Icons', 'icomoonizr' ) ?></label>
+			<input id="icon-filter" class="form-control form-control-lg" type="text" name="filter" placeholder="<?php _e( 'Search Icons...', 'icomoonizr' ) ?>">
+		</div>
+		<div class="icon-list">
+<?php
+	foreach ( $icons as $key => $value ) :
+		$property = $value['properties'];
+?>
+			<div class="icon-wrapper" data-icon="<?php echo $property['name'] ?>">
+				<div class="icon">
+					<p class="icon-brand"><span class="<?php echo 'icomoon-'. $property['name'] ?>"></span></p>
+				</div>
+			</div>
+<?php
+	endforeach;
+?>
+		</div>
+		<div id="icon-details" class="demo d-none">
+			<div class="<?php t_em_container(); ?>">
+				<div class="demo-preview"><i class="icomoon"></i></div>
+				<div class="demo-class"></div>
+				<div class="demo-markup"></div>
+				<div class="demo-svg"></div>
+			</div>
+			<a id="close-details" href="#" class="text-light"><i class="icomoon-circle-with-cross"></i></a>
+		</div>
+	</section>
+<?php
+}
+add_action( 't_em_action_content_before', 'icomoonizr_icomoon_demo' );
 ?>

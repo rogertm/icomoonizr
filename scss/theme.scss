@@ -5,3 +5,212 @@
 //
 @import "custom";
 @import "../../twenty-em/scss/theme";
+
+//
+// Scaffolding
+//
+body{
+	&.admin-bar{
+		#top-menu{
+			top: 30px;
+		}
+	}
+	cursor: default;
+}
+a{
+	color: var(--gray-dark);
+	&:hover{
+		text-decoration: none;
+		color: var(--dark);
+	}
+}
+strong,b{
+	font-weight: 700;
+}
+.form-control{
+	&:focus{
+		border-color: var(--gray);
+		box-shadow: 0 0 0 .2rem rgba($gray-700, .25);
+	}
+}
+
+//
+// Navigation
+//
+#top-menu{
+	@extend .fixed-top;
+	.navbar{
+		@extend .navbar-light;
+		background-color: rgba( $white, .9) !important;
+		@extend .border-bottom;
+		@extend .py-3;
+	}
+	.collapse{
+		.navbar-nav{
+			@extend .ml-auto;
+		}
+	}
+}
+
+//
+// Header
+//
+#static-header{
+	&.jumbotron{
+		@extend .text-center;
+		@extend .bg-light;
+	}
+	&-inner{
+		@extend .p-5;
+		@include media-breakpoint-down(lg){
+			padding-left: 0 !important;
+			padding-right: 0 !important;
+		}
+		h2{
+			@extend .display-1;
+			@include media-breakpoint-down(md){
+				font-size: 3.5rem;
+			}
+		}
+		.static-header-content{
+			@extend .lead;
+		}
+		.actions{
+			@extend .mt-5;
+			.btn{
+				@extend .btn-lg;
+				@extend .btn-outline-dark;
+				@extend .mx-3;
+				@extend .mb-3;
+				min-width: 25%;
+				@include media-breakpoint-down(md){
+					min-width: 50%;
+				}
+				@include media-breakpoint-down(xs){
+					display: inline-block;
+					min-width: 75%;
+				}
+			}
+		}
+	}
+}
+
+//
+// Content
+//
+#main{
+	@extend .pt-5;
+}
+
+//
+// IcoMoon Demo
+//
+#icon-pack{
+	.icon-filter{
+		@extend .text-center;
+		@extend .mx-auto;
+		@extend .mb-5;
+	}
+	.icon-list{
+		.icon{
+			&-wrapper{
+				@extend .float-left;
+				width: 12.5%;
+				display: block;
+				@include media-breakpoint-down(md){
+					width: 25%;
+				}
+				@include media-breakpoint-down(sm){
+					width: 33.33%;
+				}
+				&:hover,
+				&:focus,
+				&.active{
+					.icon{
+						@extend .bg-dark;
+						@extend .text-white;
+						cursor: pointer;
+						transition: 250ms;
+					}
+				}
+			}
+			&-brand{
+				@extend .h1;
+				@extend .mb-0;
+				@extend .p-3;
+			}
+			@extend .text-center;
+			@extend .bg-light;
+			@extend .m-1;
+			@extend .p-3;
+			label{
+				@extend .mb-0;
+			}
+			input{
+				padding: .12rem .25rem;
+				@extend .text-center;
+			}
+		}
+	}
+}
+
+//
+// Icon Preview
+//
+.demo{
+	@extend .py-4;
+	@extend .fixed-bottom;
+	@extend .bg-dark;
+	@extend .text-light;
+	[class^="demo-"]{
+		@extend .d-inline-block;
+		@extend .ml-3;
+		@extend .pl-3;
+		@extend .small;
+		border-left: solid 1px $gray-600 !important;
+		&:first-child{
+			@extend .m-0;
+			@extend .p-0;
+			@extend .border-0;
+			.icomoon{
+				@extend .h1;
+			}
+		}
+		span{
+			@extend .d-block;
+			@extend .text-white-50;
+		}
+	}
+	.demo-markup,
+	.demo-svg{
+		@include media-breakpoint-down(sm){
+			display: none !important;
+		}
+	}
+	#close-details{
+		@extend .position-absolute;
+		right: 1rem;
+		top: 1rem;
+	}
+}
+
+//
+// Footer
+//
+#colophon{
+	@extend .py-0;
+}
+#site-info{
+	@extend .bg-light;
+	[id^="site-info-"]{
+		max-width: 100%;
+		flex: 0 0 100%;
+		@extend .text-center;
+	}
+	#copyright{
+		@extend .lead;
+	}
+}
+#twenty-em-credit{
+	@extend .small;
+}
