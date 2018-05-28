@@ -2,3 +2,12 @@
 
 // Your variable overrides
 $icomoon-font-path: 		"../../twenty-em/fonts";
+
+// Override Bootstrap Variables
+$font-family-base:			"Open Sans";
+$headings-font-family:		"Open Sans Condensed";
+$headings-font-weight:		700;
+$display1-weight:			$headings-font-weight;
+$display2-weight:			$headings-font-weight;
+$display3-weight:			$headings-font-weight;
+$display4-weight:			$headings-font-weight;

@@ -18,14 +18,27 @@ body{
 	cursor: default;
 }
 a{
-	color: var(--gray-dark);
+	color: $gray-600;
 	&:hover{
 		text-decoration: none;
 		color: var(--dark);
 	}
 }
+article,
+#static-header{
+	a:not(.btn){
+		border-bottom: 1px dotted;
+	}
+}
 strong,b{
 	font-weight: 700;
+}
+pre{
+	background-color: $gray-100;
+	@extend .p-3;
+}
+code{
+	color: $gray-700;
 }
 .form-control{
 	&:focus{
@@ -44,6 +57,10 @@ strong,b{
 		background-color: rgba( $white, .9) !important;
 		@extend .border-bottom;
 		@extend .py-3;
+		&-brand{
+			font-family: $headings-font-family;
+			font-weight: $headings-font-weight;
+		}
 	}
 	.collapse{
 		.navbar-nav{

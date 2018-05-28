@@ -32,6 +32,10 @@ function icomoonizr_enqueue(){
 	wp_register_style( 'icomoonizr-', t_em_get_css( 'theme', T_EM_CHILD_THEME_DIR_PATH .'/css', T_EM_CHILD_THEME_DIR_URL .'/css' ), '', t_em_theme( 'Version' ), 'all' );
 	wp_enqueue_style( 'icomoonizr-' );
 
+	// Google Fonts
+	wp_register_style( 'google-fonts', icomoonizr_google_fonts(), array(), t_em_theme( 'Version' ), 'all' );
+	wp_enqueue_style( 'google-fonts' );
+
 	wp_register_script( 'child-app-utils', t_em_get_js( 'app.utils', T_EM_CHILD_THEME_DIR_PATH .'/js', T_EM_CHILD_THEME_DIR_URL .'/js' ), array( 'jquery' ), t_em_theme( 'Version' ), true );
 	wp_enqueue_script( 'child-app-utils' );
 }
@@ -47,6 +51,15 @@ function icomoonizr_dequeue(){
 	wp_deregister_style( 'twenty-em-style' );
 }
 add_action( 'wp_enqueue_scripts', 'icomoonizr_dequeue', 999 );
+
+/**
+ * Google Fonts
+ *
+ * @since Icomoonizr 1.0
+ */
+function icomoonizr_google_fonts(){
+	echo '<link href="https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:700" rel="stylesheet">';
+}
 
 /**
  * Remove unnecessary options

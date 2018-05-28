@@ -55,7 +55,7 @@ article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, s
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: "Open Sans";
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -301,8 +301,8 @@ h1, h2, h3, h4, h5, h6,
 #icon-pack .icon-list .icon-brand,
 .demo [class^="demo-"]:first-child .icomoon, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.5rem;
-  font-family: inherit;
-  font-weight: 500;
+  font-family: "Open Sans Condensed";
+  font-weight: 700;
   line-height: 1.2;
   color: inherit; }
 
@@ -330,22 +330,22 @@ h6, .h6 {
 
 .display-1, #static-header-inner h2 {
   font-size: 6rem;
-  font-weight: 300;
+  font-weight: 700;
   line-height: 1.2; }
 
 .display-2 {
   font-size: 5.5rem;
-  font-weight: 300;
+  font-weight: 700;
   line-height: 1.2; }
 
 .display-3 {
   font-size: 4.5rem;
-  font-weight: 300;
+  font-weight: 700;
   line-height: 1.2; }
 
 .display-4 {
   font-size: 3.5rem;
-  font-weight: 300;
+  font-weight: 700;
   line-height: 1.2; }
 
 hr {
@@ -4377,7 +4377,7 @@ button.close {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: "Open Sans";
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -4462,7 +4462,7 @@ button.close {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: "Open Sans";
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -6033,7 +6033,7 @@ article .card-img-overlay #comments #cancel-comment-reply-link,
 .px-2 {
   padding-left: 0.5rem !important; }
 
-.p-3, .author-info, #icon-pack .icon-list .icon-brand, #icon-pack .icon-list .icon {
+.p-3, .author-info, pre, #icon-pack .icon-list .icon-brand, #icon-pack .icon-list .icon {
   padding: 1rem !important; }
 
 .pt-3,
@@ -8914,13 +8914,23 @@ body {
     top: 30px; }
 
 a {
-  color: var(--gray-dark); }
+  color: #6c757d; }
   a:hover {
     text-decoration: none;
     color: var(--dark); }
 
+article a:not(.btn),
+#static-header a:not(.btn) {
+  border-bottom: 1px dotted; }
+
 strong, b {
   font-weight: 700; }
+
+pre {
+  background-color: #f8f9fa; }
+
+code {
+  color: #495057; }
 
 .form-control:focus {
   border-color: var(--gray);
@@ -8928,6 +8938,9 @@ strong, b {
 
 #top-menu .navbar {
   background-color: rgba(255, 255, 255, 0.9) !important; }
+  #top-menu .navbar-brand {
+    font-family: "Open Sans Condensed";
+    font-weight: 700; }
 
 @media (max-width: 1199.98px) {
   #static-header-inner {
