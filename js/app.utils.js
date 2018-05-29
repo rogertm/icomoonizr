@@ -32,7 +32,7 @@ jQuery(document).ready(function($) {
 		$('#icon-details .demo-preview').html('<i class="icomoon '+name+'"></i>');
 		$('#icon-details .demo-class').html('<span>Class:</span>'+name);
 		$('#icon-details .demo-markup').html('<span>Markup:</span>&lt;i class="'+name+'"&gt;&lt;/i&gt;');
-		$('#icon-details .demo-svg').html('<span>SVG:</span>&lt;img src="svg/'+name+'.svg"&gt;');
+		$('#icon-details .demo-svg').html('<span>SVG:</span>&lt;img src="svg/'+data+'.svg"&gt;');
 		$('#icon-details').fadeIn(200).removeClass('d-none');
 	});
 	$('#close-details').click(function(e){
