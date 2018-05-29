@@ -170,12 +170,18 @@ function icomoonizr_icomoon_demo(){
 	 * Get the icons from GitHub
 	 */
 	$get_json		= t_em( 'icon_pack_json' );
-	$read_json		= file_get_contents( $get_json );
-	$decode_json	= json_decode( $read_json, true );
-	$icons 			= $decode_json['icons'];
-	$count			= count( $icons );
+	$read_json		= ( $get_json ) ? file_get_contents( $get_json ) : null;
+	$decode_json	= ( $read_json !== false ) ? json_decode( $read_json, true ) : null;
+	$icons 			= ( $read_json !== false ) ? $decode_json['icons'] : null;
+	$count			= ( $read_json !== false ) ? count( $icons ) : null;
 ?>
 	<section id="icon-pack">
+<?php if ( ! $icons ) : ?>
+		<div class="alert alert-dark" role="alert">
+			<h4 class="alert-heading"><i class="icomoon-bug"></i> <?php _e( 'Error!', 'icomoonizr' ) ?></h4>
+			<p><?php _e( '<code>selection.json</code> file not found or not exists... Or checkout if <code>allow_url_fopen</code> is activated in your <code>php.ini</code> file.', 'icomoonizr' ) ?></p>
+		</div>
+<?php else : ?>
 		<div class="icon-filter form-group <?php echo t_em_grid( '7' ) ?>">
 			<p class="lead"><?php printf( __( 'Browse in <strong>%s</strong> icons in the list below', 'icomoonizr' ), $count ) ?></p>
 			<label for="icon-filter" class="sr-only"><?php _e( 'Search Icons', 'icomoonizr' ) ?></label>
@@ -204,6 +210,7 @@ function icomoonizr_icomoon_demo(){
 			</div>
 			<a id="close-details" href="#" class="text-light"><i class="icomoon-circle-with-cross"></i></a>
 		</div>
+<?php endif; ?>
 	</section>
 <?php
 }
