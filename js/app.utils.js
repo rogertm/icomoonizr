@@ -35,8 +35,14 @@ jQuery(document).ready(function($) {
 		$('#icon-details .demo-svg').html('<span>SVG:</span>&lt;img src="svg/'+data+'.svg"&gt;');
 		$('#icon-details').fadeIn(200).removeClass('d-none');
 	});
+
+	// Close Details
 	$('#close-details').click(function(e){
 		e.preventDefault();
+		$('.icon-wrapper.active').removeClass('active');
+		$('#icon-details').fadeOut(200);
+	});
+	$('#icon-filter').keypress(function(){
 		$('.icon-wrapper.active').removeClass('active');
 		$('#icon-details').fadeOut(200);
 	});
